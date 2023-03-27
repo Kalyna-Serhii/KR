@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Останні черги{% endblock %}
+
+{% block content %}
+
+    {% if latest_turns_list %}
+
+        {% for a in latest_turns_list %}
+            <a href="{% url 'detail' a.id %}">{{a.turn_title}}</a>
+        {% endfor %}
+
+    {% else %}
+        Черг немає
+    {% endif %}
+
+{% endblock %}

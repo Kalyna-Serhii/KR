@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}{{turn.turn_title}}{% endblock %}
+
+{% block content %}
+
+<h2>{{turn.turn_title}}</h2>
+
+<p>{{turn.turn_text}}</p>
+
+<em>{{turn.create_date}}</em>
+
+<hr>
+
+{% if latest_users_list %}
+    {% for c in latest_users_list %}
+            <p>{{c.user_number}}. {{c.user_name}}</p>
+<!--            <p>{{c.user_name}}</p>-->
+            <p>{{c.registration_date}}</p>
+{% endfor %}
+{% else %}
+Очікувачів немає, будьте першим!
+{% endif %}
+
+<hr>
+
+<form action="{% url 'turn_register' turn.id %}" method="POST">
+
+    {% csrf_token %}
+
+    <input type="text" required placeholder="Ваше ім'я" name="name"><br>
+<!--    <input type="text" required placeholder="Ваш порядковий номер" name="user_number"><br>-->
+
+    <button type="submit">Зареєструватись у черзі</button>
+</form>
+
+{% endblock %}
