@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title%}Мій сайт{% endblock %}
+
+{%block content %}
+
+<h1>Головна сторінка</h1>
+
+<a style="text-decoration: none" href ="{% url 'index' %}" >Черги</a><br>
+
+{% if user.is_authenticated %}
+    <a style="text-decoration: none" href ="{% url 'logout' %}" >Вихід</a><br>
+{% else %}
+    <a style="text-decoration: none" href ="{% url 'register' %}" >Реєстрація</a><br>
+    <a style="text-decoration: none" href ="{% url 'login' %}" >Вхід</a><br>
+{%endif%}
+
+<!--<button><a style="text-decoration: none" href="https://github.com">ZALUPA V ROT</a></button>-->
+
+
+
+{% endblock %}

@@ -1,6 +1,4 @@
-import datetime
 from django.db import models
-from django.utils import timezone
 
 
 class Turn(models.Model):
@@ -21,13 +19,13 @@ class Turn(models.Model):
 
 class User(models.Model):
     User = models.ForeignKey(Turn, on_delete=models.CASCADE, name="Зареєстрований у черзі")
-    user_name = models.CharField("Ім'я користувача", max_length=100)
-    # user_number = models.IntegerField('Порядковий номер користувача', default=0)
-    position = models.PositiveIntegerField()
+    username = models.CharField(name='Номер телефону', max_length=9)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
     registration_date = models.DateTimeField('Дата реєстрації користувача', auto_now_add=True)
 
     def __str__(self):
-        return self.user_name
+        return self.first_name
 
     class Meta:
         verbose_name = 'Очікувач'

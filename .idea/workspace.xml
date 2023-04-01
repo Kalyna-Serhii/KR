@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="" />
+    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/forms.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/main.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/logged_out.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/djangoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/templates/main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/views.py" afterDir="false" />
+    </list>
+    <list id="70f65f5e-e577-467c-860b-4eeaf6f2a9cb" name="Changes by futuregod" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -22,6 +44,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Nb6whFa2SgLxEx7aMdso5Z1A0z" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -32,11 +57,16 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/Admin/djangoProject/myfirst/myfirst/templates",
+    "last_opened_file_path": "C:/Users/Admin/djangoProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "vcs.Git",
     "vue.rearranger.settings.migration": "true"
   }
@@ -46,6 +76,11 @@
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\apps\turns\templates" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\turns" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\accounts" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\turns" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates" />
     </key>
   </component>
   <component name="RunManager">
@@ -81,7 +116,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1679920674287</updated>
-      <workItem from="1679920675997" duration="5082000" />
+      <workItem from="1679920675997" duration="10254000" />
+      <workItem from="1679935601950" duration="11610000" />
+      <workItem from="1679982222237" duration="5795000" />
+      <workItem from="1679995310534" duration="1227000" />
+      <workItem from="1679996598728" duration="4594000" />
+      <workItem from="1680001858716" duration="22827000" />
+      <workItem from="1680072679898" duration="4503000" />
+      <workItem from="1680109235720" duration="6376000" />
+      <workItem from="1680168021415" duration="33000" />
+      <workItem from="1680359150583" duration="14152000" />
     </task>
     <servers />
   </component>
