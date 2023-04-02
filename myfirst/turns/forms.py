@@ -1,9 +1,12 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
+from django.forms import ModelForm, TextInput
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 from django.contrib.auth.forms import AuthenticationForm
+
+from turns.models import Turn
 
 User = get_user_model()
 
@@ -28,3 +31,19 @@ class AuthenticationForm(AuthenticationForm):
         region="UA",
         widget=PhoneNumberPrefixWidget(attrs={'placeholder': 'XX-XXX-XX-XX'}, initial='UA')
     )
+class TurnForm(ModelForm):
+
+    class Meta:
+        model = Turn
+        fields = ['turn_title', 'turn_text']
+        widgets = {
+            "turn_title": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Title'
+
+            }),
+            "turn_text": TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Text'
+            }),
+        }

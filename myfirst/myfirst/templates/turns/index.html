@@ -5,10 +5,10 @@
 {% block content %}
 
     {% if latest_turns_list %}
-
         {% for a in latest_turns_list %}
-            <a href="{% url 'detail' a.id %}">{{a.turn_title}}</a>
+            <li><a href="{% url 'detail' a.id %}">{{a.turn_title}}</a></li>
         {% endfor %}
+
 
     {% else %}
         Черг немає

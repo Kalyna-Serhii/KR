@@ -4,25 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/main.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/logged_out.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/djangoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
+    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Added Authentication">
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/templates/main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0002_alter_turn_options_alter_user_options_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0002_alter_turn_options_alter_user_options_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0003_rename_qwerty_user_зареєстрований у черзі.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0003_rename_qwerty_user_зареєстрований у черзі.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0004_alter_user_user_number.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0004_alter_user_user_number.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0005_remove_user_user_number_user_position.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0005_remove_user_user_number_user_position.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0006_remove_user_user_name_user_first_name_user_last_name_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0006_remove_user_user_name_user_first_name_user_last_name_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0007_user_user_name.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0007_user_user_name.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0008_alter_user_first_name_alter_user_last_name_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0008_alter_user_first_name_alter_user_last_name_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0009_remove_user_phone_remove_user_user_name_and_more.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0009_remove_user_phone_remove_user_user_name_and_more.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/0010_remove_user_position_alter_user_номер телефону.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/0010_remove_user_position_alter_user_номер телефону.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/apps/turns/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/views.py" afterDir="false" />
     </list>
-    <list id="70f65f5e-e577-467c-860b-4eeaf6f2a9cb" name="Changes by futuregod" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,8 +43,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -55,22 +64,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/Admin/djangoProject",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/djangoProject&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates" />
@@ -78,9 +87,11 @@
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\turns" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\accounts" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst\turns" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\turns" />
-      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\accounts" />
     </key>
   </component>
   <component name="RunManager">
@@ -126,6 +137,7 @@
       <workItem from="1680109235720" duration="6376000" />
       <workItem from="1680168021415" duration="33000" />
       <workItem from="1680359150583" duration="14152000" />
+      <workItem from="1680449703603" duration="3818000" />
     </task>
     <servers />
   </component>

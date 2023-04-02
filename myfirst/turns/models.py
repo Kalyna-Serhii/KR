@@ -2,9 +2,10 @@ from django.db import models
 
 
 class Turn(models.Model):
+    creator = models.IntegerField()
     turn_title = models.CharField('Назва черги', max_length=100)
     turn_text = models.TextField('Опис черги')
-    create_date = models.DateTimeField('Дата створення черги')
+    create_date = models.DateTimeField('Дата створення черги',auto_now_add=True)
 
     def __str__(self):
         return self.turn_title

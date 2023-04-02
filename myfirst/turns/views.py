@@ -1,8 +1,10 @@
 from django.utils import timezone
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
-from . models import Turn
+
+from turns.forms import TurnForm
+from turns.models import Turn, User
 
 
 def index(request):
@@ -31,3 +33,18 @@ def turn_register(request, turn_id):
     a.user_set.create(first_name=user.first_name, last_name=user.last_name, registration_date=timezone.now())
     return HttpResponseRedirect(reverse('detail', args=(a.id,)))
 
+def create_turn(request):
+    if request.method == 'POST':
+        form = TurnForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            form.instance.creator = request.user.id
+            form.save()
+            return redirect('main')
+
+    form = TurnForm()
+
+    data = {
+        'form': form,
+    }
+    return render(request, 'turns/create.html', data)

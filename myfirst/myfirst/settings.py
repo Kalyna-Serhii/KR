@@ -36,7 +36,6 @@ LOGIN_REDIRECT_URL = '/'
 # Application definition
 
 INSTALLED_APPS = [
-    # 'turns',
     'phonenumber_field',
     'turns.apps.TurnsConfig',
     'django.contrib.admin',

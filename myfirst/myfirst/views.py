@@ -1,4 +1,4 @@
-from myfirst.apps.turns.forms import UserCreationForm, AuthenticationForm
+from turns.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render, redirect
 from django.views import View
