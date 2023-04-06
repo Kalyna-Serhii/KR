@@ -6,6 +6,12 @@
 
 <h1>Головна сторінка</h1>
 
+{% if user.is_authenticated %}
+    <p>Вітаємо, {{user.first_name}}!</p>
+{% else %}
+    <p>Вітаємо, гість!</p>
+{%endif%}
+
 <a style="text-decoration: none" href ="{% url 'index' %}" >Черги</a><br>
 
 {% if user.is_authenticated %}
@@ -14,9 +20,5 @@
     <a style="text-decoration: none" href ="{% url 'register' %}" >Реєстрація</a><br>
     <a style="text-decoration: none" href ="{% url 'login' %}" >Вхід</a><br>
 {%endif%}
-
-<!--<button><a style="text-decoration: none" href="https://github.com">ZALUPA V ROT</a></button>-->
-
-
 
 {% endblock %}

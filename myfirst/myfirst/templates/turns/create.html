@@ -1,11 +1,16 @@
 {% extends 'base.html' %}
 
+{% block title %}Створення черги{% endblock %}
+
 {% block content %}
-<h1>Form for creating new turn</h1>
+
+<h1>Створення черги</h1>
+
 <form method="post">
     {% csrf_token %}
     {{ form.turn_title }}<br>
     {{ form.turn_text }}<br>
-    <button class="btn btn-success" type="submit">SUBMIT</button>
+    <button class="btn btn-success" type="submit">Створити</button>
 </form>
+
 {% endblock %}
