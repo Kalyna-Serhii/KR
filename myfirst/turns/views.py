@@ -68,4 +68,15 @@ def detail(request, turn_id):
 
     latest_users_list = turn.user_set.order_by('registration_date')
     users_id_list = [i.id for i in latest_users_list]
-    return render(request, 'turns/detail.html', {'turn': turn, 'latest_users_list': latest_users_list, 'users_id_list': users_id_list})
+    return render(request, 'turns/detail.html', {'turn': turn, 'latest_users_list': latest_users_list,
+                                                 'users_id_list': users_id_list})
+
+
+def next_turn_user(request, turn_id):
+    turn = Turn.objects.get(id=turn_id)
+    if request.user.id == turn.creator or request.user.username == 'admin':
+        latest_users_list = turn.user_set.order_by('registration_date')
+        latest_users_list[0].delete()
+        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+    else:
+        raise Http404("Ви не хазяїн черги!")

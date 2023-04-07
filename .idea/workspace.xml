@@ -4,23 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Changed DataBase Structure + added function for creating new turn">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/abab424c-4703-45a2-abe8-13f5945e15b8.xml" beforeDir="false" />
+    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Added turn master to turns + functions to unregister in the turn and deleting your turn">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/logged_out.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/logged_out.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/turns/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/apps.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/turns/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/turns/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/turns/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/turns/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/views.py" afterDir="false" />
     </list>
@@ -152,7 +139,9 @@
       <workItem from="1680633417351" duration="81000" />
       <workItem from="1680633823698" duration="9522000" />
       <workItem from="1680669782798" duration="12261000" />
-      <workItem from="1680765735789" duration="2177000" />
+      <workItem from="1680765735789" duration="2556000" />
+      <workItem from="1680846426051" duration="1192000" />
+      <workItem from="1680851318465" duration="8531000" />
     </task>
     <task id="LOCAL-00001" summary="Changed DataBase Structure + added function for creating new turn">
       <created>1680453658349</created>
@@ -161,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680453658349</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added turn master to turns + functions to unregister in the turn and deleting your turn">
+      <created>1680768147599</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1680768147599</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +176,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed DataBase Structure + added function for creating new turn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed DataBase Structure + added function for creating new turn" />
+    <MESSAGE value="Added turn master to turns + functions to unregister in the turn and deleting your turn" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added turn master to turns + functions to unregister in the turn and deleting your turn" />
   </component>
 </project>

@@ -6,10 +6,13 @@
 
 <h2>{{turn.turn_title}}</h2>
 <p>{{turn.turn_text}}</p>
-<em>{{turn.create_date}}</em>
+<em>{{turn.create_date}}</em><br>
 
 {%if request.user.id == turn.creator or request.user.username == 'admin' %}
     <a href="{% url 'delete_turn' turn.id%}">Видалити чергу</a>
+    {% if latest_users_list %}
+        <a href="{% url 'next_turn_user' turn.id%}">Наступний</a>
+    {%endif%}
 {%endif%}
 
 <hr>
