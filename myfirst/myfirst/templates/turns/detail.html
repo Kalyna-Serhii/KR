@@ -12,8 +12,34 @@
     <a href="{% url 'delete_turn' turn.id%}">Видалити чергу</a>
     {% if latest_users_list %}
         <a href="{% url 'next_turn_user' turn.id%}">Наступний</a>
+        <form action="{% url 'delete_turn_user' turn.id %}" method="POST">
+            {% csrf_token %}
+            <label for="user_list" style="display: inline-block">Оберіть користувача для видалення:</label>
+            <select name="user" id="user_list" style="display: inline-block">
+                <option value=""></option>
+                {% for user in latest_users_list %}
+                    <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit" id="delete_button" style="display:none; margin-left: 5px; display: inline-block;">Видалити</button>
+        </form>
     {%endif%}
 {%endif%}
+<script>
+    var select = document.getElementById("user_list");
+    var button = document.getElementById("delete_button");
+
+    button.style.display = "none";
+    select.value = "";
+
+    select.addEventListener("change", function() {
+        if (select.value) {
+            button.style.display = "inline-block";
+        } else {
+            button.style.display = "none";
+        }
+    });
+</script>
 
 <hr>
 

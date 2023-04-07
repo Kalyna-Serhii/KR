@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
 from turns.models import Turn
@@ -80,3 +80,11 @@ def next_turn_user(request, turn_id):
         return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
     else:
         raise Http404("Ви не хазяїн черги!")
+
+
+def delete_turn_user(request, turn_id):
+    if request.method == 'POST':
+        turn = get_object_or_404(Turn, id=turn_id)
+        user_id = request.POST['user']
+        turn.user_set.filter(id=user_id).delete()
+        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))

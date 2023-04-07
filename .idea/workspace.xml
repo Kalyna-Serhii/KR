@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Added turn master to turns + functions to unregister in the turn and deleting your turn">
+    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Added &quot;next&quot; command (delete from head of turn)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" afterDir="false" />
@@ -45,22 +45,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/djangoProject&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "last_opened_file_path": "C:/Users/Admin/djangoProject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings module-name="djangoProject" is-module-sdk="true">
@@ -141,7 +141,8 @@
       <workItem from="1680669782798" duration="12261000" />
       <workItem from="1680765735789" duration="2556000" />
       <workItem from="1680846426051" duration="1192000" />
-      <workItem from="1680851318465" duration="8531000" />
+      <workItem from="1680851318465" duration="10737000" />
+      <workItem from="1680895698604" duration="4771000" />
     </task>
     <task id="LOCAL-00001" summary="Changed DataBase Structure + added function for creating new turn">
       <created>1680453658349</created>
@@ -157,7 +158,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680768147599</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added &quot;next&quot; command (delete from head of turn)">
+      <created>1680860660633</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1680860660634</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,6 +185,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Changed DataBase Structure + added function for creating new turn" />
     <MESSAGE value="Added turn master to turns + functions to unregister in the turn and deleting your turn" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added turn master to turns + functions to unregister in the turn and deleting your turn" />
+    <MESSAGE value="Added &quot;next&quot; command (delete from head of turn)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;next&quot; command (delete from head of turn)" />
   </component>
 </project>
