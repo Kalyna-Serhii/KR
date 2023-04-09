@@ -82,10 +82,15 @@ WSGI_APPLICATION = 'myfirst.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+TIME_ZONE = 'Europe/Kiev'
+
+USE_TZ = True
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
+        'TIME_ZONE': TIME_ZONE
     }
 }
 
@@ -112,11 +117,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'UK'
 
-TIME_ZONE = 'Europe/Kiev'
-
 USE_I18N = True
-
-USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

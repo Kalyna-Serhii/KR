@@ -12,7 +12,7 @@ class Register(View):
     template_name = 'registration/register.html'
 
     def get(self, request):
-        context = {"form": UserCreationForm()}
+        context = {'form': UserCreationForm()}
         return render(request, self.template_name, context)
 
     def post(self, request):
@@ -20,8 +20,8 @@ class Register(View):
 
         if form.is_valid():
             form.save()
-            username = form.cleaned_data.get("username")
-            password = form.cleaned_data.get("password1")
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password1')
             User = authenticate(username=username, password=password)
             login(request, User)
             return redirect('main')

@@ -15,7 +15,7 @@ class UserCreationForm(UserCreationForm):
     last_name = forms.CharField(label='Прізвище')
     username = PhoneNumberField(
         label='Номер телефону',
-        region="UA",
+        region='UA',
         widget=PhoneNumberPrefixWidget(attrs={'placeholder': 'XX-XXX-XX-XX'}, initial='UA'))
 
     class Meta(UserCreationForm.Meta):
@@ -26,7 +26,7 @@ class UserCreationForm(UserCreationForm):
 class AuthenticationForm(AuthenticationForm):
     username = PhoneNumberField(
         label='Номер телефону',
-        region="UA",
+        region='UA',
         widget=PhoneNumberPrefixWidget(attrs={'placeholder': 'XX-XXX-XX-XX'}, initial='UA'))
 
 
@@ -35,12 +35,12 @@ class TurnForm(ModelForm):
         model = Turn
         fields = ['turn_title', 'turn_text']
         widgets = {
-            "turn_title": TextInput(attrs={
+            'turn_title': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Назва',
                 'name': 'turn_title'
             }),
-            "turn_text": TextInput(attrs={
+            'turn_text': TextInput(attrs={
                 'class': 'form-control',
                 'placeholder': 'Опис',
                 'name': 'turn_text'

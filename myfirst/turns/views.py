@@ -32,7 +32,7 @@ def delete_turn(request, turn_id):
         turn.delete()
         return redirect('index')
     else:
-        raise Http404("Ви не хазяїн черги!")
+        raise Http404('Ви не хазяїн черги!')
 
 
 def turn_register(request, turn_id):
@@ -40,9 +40,8 @@ def turn_register(request, turn_id):
     try:
         turn = Turn.objects.get(id=turn_id)
     except:
-        raise Http404("Черга не знайдена!")
-
-    turn.user_set.create(first_name=user.first_name, last_name=user.last_name,
+        raise Http404('Черга не знайдена!')
+    turn.user_set.create(username=user.username, first_name=user.first_name, last_name=user.last_name,
                          registration_date=timezone.now(), id=user.id)
     return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
 
@@ -52,7 +51,7 @@ def turn_unregister(request, turn_id):
     try:
         turn = Turn.objects.get(id=turn_id)
     except:
-        raise Http404("Ви не в черзі!")
+        raise Http404('Ви не в черзі!')
 
     user_in_turn = turn.user_set.filter(id=user.id)
     if user_in_turn.exists():
@@ -64,7 +63,7 @@ def detail(request, turn_id):
     try:
         turn = Turn.objects.get(id=turn_id)
     except:
-        raise Http404("Черга не знайдена!")
+        raise Http404('Черга не знайдена!')
 
     latest_users_list = turn.user_set.order_by('registration_date')
     users_id_list = [i.id for i in latest_users_list]
@@ -79,7 +78,7 @@ def next_turn_user(request, turn_id):
         latest_users_list[0].delete()
         return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
     else:
-        raise Http404("Ви не хазяїн черги!")
+        raise Http404('Ви не хазяїн черги!')
 
 
 def delete_turn_user(request, turn_id):
