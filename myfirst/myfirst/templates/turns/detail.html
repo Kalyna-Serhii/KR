@@ -7,9 +7,14 @@
 <h2>{{turn.turn_title}}</h2>
 <p>{{turn.turn_text}}</p>
 <em>{{turn.create_date}}</em><br>
-
 {%if request.user.id == turn.creator or request.user.username == 'admin' %}
     <a href="{% url 'delete_turn' turn.id%}">Видалити чергу</a>
+    {%if turn.status == False %}
+         <a href="{% url 'open_turn' turn.id%}">Відкрити чергу</a>
+    {%endif%}
+    {%if turn.status == True %}
+         <a href="{% url 'close_turn' turn.id%}">Закрити чергу</a>
+    {%endif%}
     {% if latest_users_list %}
         <a href="{% url 'next_turn_user' turn.id%}">Наступний</a>
         <form action="{% url 'delete_turn_user' turn.id %}" method="POST">
@@ -60,11 +65,13 @@
     {% if user.id in users_id_list %}
         <p>Ви вже в черзі</p>
         <a href="{% url 'turn_unregister' turn.id %}">Скасувати реєстрацію</a>
-    {% else %}
+    {%elif turn.status == True %}
         <form action="{% url 'turn_register' turn.id %}" method="POST">
             {% csrf_token %}
             <button type="submit">Зареєструватись у черзі</button>
         </form>
+    {% else %}
+        <p>Черга закрита для реєстрації</p>
     {% endif %}
 {% else %}
     <p>Щоб зареєструватись у черзі потрібно авторизуватись на сайті!</p>

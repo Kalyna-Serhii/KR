@@ -1,5 +1,5 @@
 from django.utils import timezone
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
 from turns.models import Turn
@@ -24,6 +24,32 @@ def create_turn(request):
     form = TurnForm()
     data = {'form': form}
     return render(request, 'turns/create.html', data)
+
+
+def open_turn(request, turn_id):
+    turn = Turn.objects.get(id=turn_id)
+    if request.user.id == turn.creator or request.user.username == 'admin':
+        if not turn.status:
+            turn.status = True
+            turn.save()
+        else:
+            raise Http404('Черга вже відкрита')
+    else:
+        raise Http404('Ви не хазяїн черги!')
+    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+
+
+def close_turn(request, turn_id):
+    turn = Turn.objects.get(id=turn_id)
+    if request.user.id == turn.creator or request.user.username == 'admin':
+        if turn.status:
+            turn.status = False
+            turn.save()
+        else:
+            raise Http404('Черга вже закрита')
+    else:
+        raise Http404('Ви не хазяїн черги!')
+    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
 
 
 def delete_turn(request, turn_id):
@@ -82,8 +108,11 @@ def next_turn_user(request, turn_id):
 
 
 def delete_turn_user(request, turn_id):
-    if request.method == 'POST':
-        turn = get_object_or_404(Turn, id=turn_id)
-        user_id = request.POST['user']
-        turn.user_set.filter(id=user_id).delete()
-        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+    turn = Turn.objects.get(id=turn_id)
+    if request.user.id == turn.creator or request.user.username == 'admin':
+        if request.method == 'POST':
+            user_id = request.POST['user']
+            turn.user_set.filter(id=user_id).delete()
+            return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+    else:
+        raise Http404('Ви не хазяїн черги!')
