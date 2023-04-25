@@ -11,8 +11,6 @@ class Turn(models.Model):
     time_at_the_top = models.DateTimeField(null=True, blank=True)
     all_service_time = models.PositiveIntegerField(default=0)
     all_waiting = models.PositiveIntegerField(default=0)
-    expected_hours = models.IntegerField(default=-1)
-    expected_minutes = models.IntegerField(default=-1)
 
     def __str__(self):
         return self.turn_title

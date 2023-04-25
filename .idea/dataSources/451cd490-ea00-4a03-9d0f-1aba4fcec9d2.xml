@@ -1878,83 +1878,98 @@ model</ColNames>
     <column id="608" parent="515" name="seq">
       <Position>2</Position>
     </column>
-    <column id="609" parent="516" name="id">
+    <check id="609" parent="516">
+      <Predicate>&quot;all_service_time&quot; &gt;= 0</Predicate>
+    </check>
+    <check id="610" parent="516">
+      <Predicate>&quot;all_waiting&quot; &gt;= 0</Predicate>
+    </check>
+    <column id="611" parent="516" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="610" parent="516" name="turn_title">
+    <column id="612" parent="516" name="turn_title">
       <DasType>varchar(100)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="611" parent="516" name="turn_text">
+    <column id="613" parent="516" name="turn_text">
       <DasType>text|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="612" parent="516" name="create_date">
+    <column id="614" parent="516" name="create_date">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="613" parent="516" name="creator">
+    <column id="615" parent="516" name="creator">
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="614" parent="516" name="status">
-      <DasType>integer|0s</DasType>
+    <column id="616" parent="516" name="status">
+      <DasType>bool|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <key id="615" parent="516">
+    <column id="617" parent="516" name="all_service_time">
+      <DasType>integer unsigned|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <column id="618" parent="516" name="all_waiting">
+      <DasType>integer unsigned|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>8</Position>
+    </column>
+    <column id="619" parent="516" name="expected_hours">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>9</Position>
+    </column>
+    <column id="620" parent="516" name="time_at_the_top">
+      <DasType>datetime|0s</DasType>
+      <Position>10</Position>
+    </column>
+    <column id="621" parent="516" name="expected_minutes">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>11</Position>
+    </column>
+    <key id="622" parent="516">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="616" parent="517" name="id">
+    <column id="623" parent="517" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="617" parent="517" name="registration_date">
+    <column id="624" parent="517" name="registration_date">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="618" parent="517" name="first_name">
+    <column id="625" parent="517" name="first_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="619" parent="517" name="last_name">
+    <column id="626" parent="517" name="last_name">
       <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="620" parent="517" name="username">
+    <column id="627" parent="517" name="username">
       <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="621" parent="517" name="user_turn_id">
-      <DasType>bigint|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>6</Position>
-    </column>
-    <foreign-key id="622" parent="517">
-      <ColNames>user_turn_id</ColNames>
-      <Deferrable>1</Deferrable>
-      <InitiallyDeferred>1</InitiallyDeferred>
-      <RefColNames>id</RefColNames>
-      <RefTableName>turns_turn</RefTableName>
-    </foreign-key>
-    <index id="623" parent="517" name="turns_user_user_turn_id_cf25b0b5">
-      <ColNames>user_turn_id</ColNames>
-    </index>
-    <key id="624" parent="517">
+    <key id="628" parent="517">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

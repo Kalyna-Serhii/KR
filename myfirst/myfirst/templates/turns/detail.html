@@ -64,12 +64,12 @@
 
 {% if user.id == first_in_the_turn %}
     <p>Ви в процесі обслуговування</p>
-{% elif turn.expected_hours == -1 and turn.expected_minutes == -1 %}
+{% elif expected_hours == -1 and expected_minutes == -1 %}
     <p>Даних про приблизний час очікування немає</p>
-{% elif turn.expected_hours == 0 and turn.expected_minutes == 0 %}
+{% elif expected_hours == 0 and expected_minutes == 0 %}
 
 {% else %}
-    <p>Приблизний час очікування: {{turn.expected_hours}} год. {{turn.expected_minutes}} хв.</p>
+    <p>Приблизний час очікування: {{expected_hours}} год. {{expected_minutes}} хв.</p>
 {% endif %}
 
 {% if user.is_authenticated %}

@@ -1,9 +1,11 @@
 from django.utils import timezone
 from django.shortcuts import render, redirect
-from django.http import Http404, HttpResponseRedirect
+from django.http import HttpResponseRedirect
 from django.urls import reverse
 from turns.models import Turn
 from turns.forms import TurnForm
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.utils import IntegrityError
 
 
 def index(request):
@@ -20,7 +22,6 @@ def create_turn(request):
             form.save()
             turn_id = form.instance.id
             return redirect(f'../{turn_id}/')
-
     form = TurnForm()
     data = {'form': form}
     return render(request, 'turns/create.html', data)
@@ -28,8 +29,10 @@ def create_turn(request):
 
 def detail(request, turn_id):
     try:
-        users_check(request, turn_id)
         turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
+    else:
         latest_users_list = turn.user_set.order_by('registration_date')
         users_id_list = [i.id for i in latest_users_list]
         if users_id_list:
@@ -39,129 +42,158 @@ def detail(request, turn_id):
         if not latest_users_list:
             turn.time_at_the_top = None
             turn.save()
+        expected_hours, expected_minutes = users_check(request, turn_id)
         return render(request, 'turns/detail.html', {'turn': turn, 'latest_users_list': latest_users_list,
                                                      'users_id_list': users_id_list,
-                                                     'first_in_the_turn': first_in_the_turn})
-    except:
-        raise Http404('Черга не знайдена!')
+                                                     'first_in_the_turn': first_in_the_turn,
+                                                     'expected_hours': expected_hours,
+                                                     'expected_minutes': expected_minutes})
 
 
 def open_turn(request, turn_id):
-    turn = Turn.objects.get(id=turn_id)
-    user = request.user
-    if user.id == turn.creator or user.username == 'admin':
-        if not turn.status:
-            turn.status = True
-            turn.save()
-        else:
-            raise Http404('Черга вже відкрита')
+    try:
+        turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
     else:
-        raise Http404('Ви не хазяїн черги!')
-    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+        user = request.user
+        if user.id == turn.creator or user.username == 'admin':
+            if not turn.status:
+                turn.status = True
+                turn.save()
+            else:
+                return render(request, 'error.html', {'error_message': 'Черга вже відкрита!'})
+        else:
+            return render(request, 'error.html', {'error_message': 'Ви не хазяїн черги!'})
+        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
 
 
 def close_turn(request, turn_id):
-    turn = Turn.objects.get(id=turn_id)
-    user = request.user
-    if user.id == turn.creator or user.username == 'admin':
-        if turn.status:
-            turn.status = False
-            turn.save()
-        else:
-            raise Http404('Черга вже закрита')
+    try:
+        turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
     else:
-        raise Http404('Ви не хазяїн черги!')
-    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+        user = request.user
+        if user.id == turn.creator or user.username == 'admin':
+            if turn.status:
+                turn.status = False
+                turn.save()
+            else:
+                return render(request, 'error.html', {'error_message': 'Черга вже закрита!'})
+        else:
+            return render(request, 'error.html', {'error_message': 'Ви не хазяїн черги!'})
+        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
 
 
 def delete_turn(request, turn_id):
-    turn = Turn.objects.get(id=turn_id)
-    user = request.user
-    if user.id == turn.creator or user.username == 'admin':
-        turn.delete()
-        return redirect('index')
+    try:
+        turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
     else:
-        raise Http404('Ви не хазяїн черги!')
+        user = request.user
+        if user.id == turn.creator or user.username == 'admin':
+            turn.delete()
+            return redirect('index')
+        else:
+            return render(request, 'error.html', {'error_message': 'Ви не хазяїн черги!'})
 
 
 def turn_register(request, turn_id):
     user = request.user
     try:
         turn = Turn.objects.get(id=turn_id)
-    except:
-        raise Http404('Черга не знайдена!')
-    turn.user_set.create(username=user.username, first_name=user.first_name, last_name=user.last_name,
-                         registration_date=timezone.now(), id=user.id)
-    latest_users_list = turn.user_set.order_by('registration_date')
-    if user.id == latest_users_list[0].id:
-        position_check(request, turn_id)
-    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
+    else:
+        try:
+            turn.user_set.create(username=user.username, first_name=user.first_name, last_name=user.last_name,
+                                 registration_date=timezone.now(), id=user.id)
+        except IntegrityError:
+            return render(request, 'error.html', {'error_message': 'Ви вже зареєстровані в іншій черзі!'})
+        else:
+            latest_users_list = turn.user_set.order_by('registration_date')
+            if user.id == latest_users_list[0].id:
+                position_check(request, turn_id)
+            return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
 
 
 def turn_unregister(request, turn_id):
     user = request.user
     try:
         turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
+    else:
         latest_users_list = turn.user_set.order_by('registration_date')
-    except:
-        raise Http404('Черга не знайдена!')
-
-    try:
         if user.id == latest_users_list[0].id:
             flag = True
         else:
             flag = False
-        latest_users_list[0].delete()
-        if flag is True:
-            if latest_users_list:
-                position_check(request, turn_id)
-    except:
-        raise Http404('Ви не в черзі!')
-
-    users_check(request, turn_id)
-    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+        try:
+            latest_users_list[0].delete()
+        except IndexError:
+            return render(request, 'error.html', {'error_message': 'Ви не в черзі!'})
+        else:
+            if flag is True:
+                if latest_users_list:
+                    position_check(request, turn_id)
+        users_check(request, turn_id)
+        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
 
 
 def next_turn_user(request, turn_id):
-    turn = Turn.objects.get(id=turn_id)
-    user = request.user
-    if user.id == turn.creator or user.username == 'admin':
-        latest_users_list = turn.user_set.order_by('registration_date')
-        time_check(request, turn_id)
-        latest_users_list[0].delete()
-        if latest_users_list:
-            position_check(request, turn_id)
-        users_check(request, turn_id)
-        return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+    try:
+        turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
     else:
-        raise Http404('Ви не хазяїн черги!')
+        user = request.user
+        if user.id == turn.creator or user.username == 'admin':
+            latest_users_list = turn.user_set.order_by('registration_date')
+            if not latest_users_list:
+                return render(request, 'error.html', {'error_message': 'Черга порожня!'})
+            time_check(request, turn_id)
+            latest_users_list[0].delete()
+            if latest_users_list:
+                position_check(request, turn_id)
+            users_check(request, turn_id)
+            return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+        else:
+            return render(request, 'error.html', {'error_message': 'Ви не хазяїн черги!'})
 
 
 def delete_turn_user(request, turn_id):
-    turn = Turn.objects.get(id=turn_id)
-    user = request.user
-    if user.id == turn.creator or user.username == 'admin':
-        if request.method == 'POST':
-            latest_users_list = turn.user_set.order_by('registration_date')
-            user_id = request.POST['user']
-            try:
-                if user.id == latest_users_list[0].id:
+    try:
+        turn = Turn.objects.get(id=turn_id)
+    except ObjectDoesNotExist:
+        return render(request, 'error.html', {'error_message': 'Черга не знайдена!'})
+    else:
+        user = request.user
+        if user.id == turn.creator or user.username == 'admin':
+            if request.method == 'POST':
+                latest_users_list = turn.user_set.order_by('registration_date')
+                user_id = request.POST['user']
+                if user_id == str(latest_users_list[0].id):
                     flag = True
                 else:
                     flag = False
-                for i in range(len(latest_users_list)):
-                    if user_id == str(latest_users_list[i].id):
-                        latest_users_list[i].delete()
-                        break
-                if flag is True:
-                    if latest_users_list:
-                        position_check(request, turn_id)
-                users_check(request, turn_id)
-                return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
-            except:
-                raise Http404('Такого очікувача не існує!')
-    else:
-        raise Http404('Ви не хазяїн черги!')
+                try:
+                    for i in range(len(latest_users_list)):
+                        if user_id == str(latest_users_list[i].id):
+                            latest_users_list[i].delete()
+                            break
+                except IndexError:
+                    return render(request, 'error.html', {'error_message': 'Такого очікувача не існує!'})
+                else:
+                    if flag is True:
+                        if latest_users_list:
+                            position_check(request, turn_id)
+                    users_check(request, turn_id)
+                    return HttpResponseRedirect(reverse('detail', args=(turn.id,)))
+        else:
+            return render(request, 'error.html', {'error_message': 'Ви не хазяїн черги!'})
 
 
 def position_check(request, turn_id):
@@ -195,16 +227,15 @@ def users_check(request, turn_id):
             else:
                 users_in_the_turn_before_user += 1
     if turn.all_waiting == 0:
-        pass
+        expected_hours = -1
+        expected_minutes = -1
     else:
         average_service_time = turn.all_service_time // turn.all_waiting
         expected_waiting_time = average_service_time * users_in_the_turn_before_user
         expected_hours, remainder = divmod(expected_waiting_time, 3600)
-        expected_minutes, average_seconds = divmod(remainder, 60)
+        expected_minutes, expected_seconds = divmod(remainder, 60)
 
-        if expected_minutes == 0 and average_seconds != 0:
+        if expected_minutes == 0 and expected_seconds != 0:
             expected_minutes = 1
 
-        turn.expected_hours = expected_hours
-        turn.expected_minutes = expected_minutes
-        turn.save()
+    return expected_hours, expected_minutes
