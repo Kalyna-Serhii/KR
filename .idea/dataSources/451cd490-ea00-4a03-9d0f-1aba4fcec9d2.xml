@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="db">
   <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.48">
-    <root id="1"/>
+    <root id="1">
+      <ServerVersion>3.40.1</ServerVersion>
+    </root>
     <collation id="2" parent="1" name="RTRIM"/>
     <collation id="3" parent="1" name="NOCASE"/>
     <collation id="4" parent="1" name="BINARY"/>
@@ -1897,65 +1899,62 @@ model</ColNames>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <key id="613" parent="516">
+    <column id="613" parent="516" name="creator">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="614" parent="516" name="status">
+      <DasType>integer|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>6</Position>
+    </column>
+    <key id="615" parent="516">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <check id="614" parent="517">
-      <Predicate>&quot;position&quot; &gt;= 0</Predicate>
-    </check>
-    <column id="615" parent="517" name="id">
+    <column id="616" parent="517" name="id">
       <AutoIncrement>1</AutoIncrement>
       <DasType>integer|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="616" parent="517" name="registration_date">
+    <column id="617" parent="517" name="registration_date">
       <DasType>datetime|0s</DasType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="617" parent="517" name="Зареєстрований у черзі_id">
-      <DasType>bigint|0s</DasType>
+    <column id="618" parent="517" name="first_name">
+      <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="618" parent="517" name="position">
-      <DasType>integer unsigned|0s</DasType>
+    <column id="619" parent="517" name="last_name">
+      <DasType>varchar(50)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="619" parent="517" name="first_name">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="620" parent="517" name="username">
+      <DasType>varchar(15)|0s</DasType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="620" parent="517" name="last_name">
-      <DasType>varchar(50)|0s</DasType>
+    <column id="621" parent="517" name="user_turn_id">
+      <DasType>bigint|0s</DasType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="621" parent="517" name="phone">
-      <DasType>varchar(128)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>7</Position>
-    </column>
-    <column id="622" parent="517" name="user_name">
-      <DasType>varchar(15)|0s</DasType>
-      <NotNull>1</NotNull>
-      <Position>8</Position>
-    </column>
-    <foreign-key id="623" parent="517">
-      <ColNames>Зареєстрований у черзі_id</ColNames>
+    <foreign-key id="622" parent="517">
+      <ColNames>user_turn_id</ColNames>
       <Deferrable>1</Deferrable>
       <InitiallyDeferred>1</InitiallyDeferred>
       <RefColNames>id</RefColNames>
       <RefTableName>turns_turn</RefTableName>
     </foreign-key>
-    <index id="624" parent="517" name="turns_user_Зареєстрований у черзі_id_fbab43da">
-      <ColNames>Зареєстрований у черзі_id</ColNames>
+    <index id="623" parent="517" name="turns_user_user_turn_id_cf25b0b5">
+      <ColNames>user_turn_id</ColNames>
     </index>
-    <key id="625" parent="517">
+    <key id="624" parent="517">
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>

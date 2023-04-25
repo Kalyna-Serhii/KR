@@ -7,14 +7,15 @@
 <h2>{{turn.turn_title}}</h2>
 <p>{{turn.turn_text}}</p>
 <em>{{turn.create_date}}</em><br>
-{%if request.user.id == turn.creator or request.user.username == 'admin' %}
+
+{% if user.id == turn.creator or user.username == 'admin' %}
     <a href="{% url 'delete_turn' turn.id%}">Видалити чергу</a>
-    {%if turn.status == False %}
+    {% if turn.status == False %}
          <a href="{% url 'open_turn' turn.id%}">Відкрити чергу</a>
-    {%endif%}
-    {%if turn.status == True %}
+     {% endif %}
+    {% if turn.status == True %}
          <a href="{% url 'close_turn' turn.id%}">Закрити чергу</a>
-    {%endif%}
+    {% endif %}
     {% if latest_users_list %}
         <a href="{% url 'next_turn_user' turn.id%}">Наступний</a>
         <form action="{% url 'delete_turn_user' turn.id %}" method="POST">
@@ -28,8 +29,8 @@
             </select>
             <button type="submit" id="delete_button" style="display:none; margin-left: 5px; display: inline-block;">Видалити</button>
         </form>
-    {%endif%}
-{%endif%}
+    {% endif %}
+{% endif %}
 <script>
     var select = document.getElementById("user_list");
     var button = document.getElementById("delete_button");
@@ -61,9 +62,21 @@
 
 <hr>
 
+{% if user.id == first_in_the_turn %}
+    <p>Ви в процесі обслуговування</p>
+{% elif turn.expected_hours == -1 and turn.expected_minutes == -1 %}
+    <p>Даних про приблизний час очікування немає</p>
+{% elif turn.expected_hours == 0 and turn.expected_minutes == 0 %}
+
+{% else %}
+    <p>Приблизний час очікування: {{turn.expected_hours}} год. {{turn.expected_minutes}} хв.</p>
+{% endif %}
+
 {% if user.is_authenticated %}
     {% if user.id in users_id_list %}
-        <p>Ви вже в черзі</p>
+        {% if request.user.id != first_in_the_turn %}
+            <p>Ви вже в черзі</p>
+        {% endif %}
         <a href="{% url 'turn_unregister' turn.id %}">Скасувати реєстрацію</a>
     {%elif turn.status == True %}
         <form action="{% url 'turn_register' turn.id %}" method="POST">

@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Added function to deleting any user from the turn">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/451cd490-ea00-4a03-9d0f-1aba4fcec9d2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/451cd490-ea00-4a03-9d0f-1aba4fcec9d2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/djangoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" afterDir="false" />
@@ -152,6 +149,13 @@
       <workItem from="1681314708565" duration="1153000" />
       <workItem from="1681325894460" duration="698000" />
       <workItem from="1681721682408" duration="5360000" />
+      <workItem from="1682233778084" duration="23275000" />
+      <workItem from="1682336864633" duration="139000" />
+      <workItem from="1682337020219" duration="696000" />
+      <workItem from="1682337750234" duration="199000" />
+      <workItem from="1682337982293" duration="10502000" />
+      <workItem from="1682360524230" duration="4601000" />
+      <workItem from="1682402323444" duration="16064000" />
     </task>
     <task id="LOCAL-00001" summary="Changed DataBase Structure + added function for creating new turn">
       <created>1680453658349</created>
