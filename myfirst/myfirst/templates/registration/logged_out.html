@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 
+{% block title %}Вихід{% endblock %}
+
 {% block content %}
 
-<p>Ви успішно вийшли з аккаунта!</p>
+<h1>Вихід</h1>
 
-<a href="{% url 'main'%}">На головну</a>
-<br>
-<a href="{% url 'login'%}">Клікніть тут щоб увійти</a>
+<div>
+    <ul>
+        <li><p>Ви успішно вийшли з аккаунта!</p></li>
+        <li><a href="{% url 'main'%}">На головну</a></li>
+        <li><a href ="{% url 'register' %}">Реєстрація</a></li>
+        <li><a href ="{% url 'login' %}">Вхід</a></li>
+    </ul>
+</div>
 
 {% endblock %}

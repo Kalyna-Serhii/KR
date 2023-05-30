@@ -6,11 +6,13 @@
 
 <h1>Створення черги</h1>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.turn_title }}<br>
-    {{ form.turn_text }}<br>
-    <button class="btn btn-success" type="submit">Створити</button>
-</form>
+<div style="text-align: center">
+    <form method="post">
+        {% csrf_token %}
+        {{ form.turn_title }}<br>
+        {{ form.turn_text }}<br>
+        <button type="submit">Створити</button>
+    </form>
+</div>
 
 {% endblock %}

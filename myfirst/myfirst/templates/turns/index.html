@@ -1,22 +1,33 @@
 {% extends 'base.html' %}
 
-{% block title %}Останні черги{% endblock %}
+{% block title %}Черги{% endblock %}
 
 {% block content %}
-    {% if latest_turns_list %}
-        {% for a in latest_turns_list %}
-            <li><a href="{% url 'detail' a.id %}">{{a.turn_title}}</a></li>
-        {% endfor %}
-    {% else %}
-        Черг немає <br>
-    {% endif %}
 
-{% if user.is_authenticated %}
-    <a href ="{% url 'create_turn' %}" >Створити чергу</a>
-{% else %}
-    <p>Щоб створити чергу потрібно авторизуватись на сайті!</p>
-    <a href="{% url 'register'%}">Клікніть тут щоб зареєструватися</a><br>
-    <a href="{% url 'login'%}">Клікніть тут щоб увійти</a>
-{% endif %}
+<h1>Черги</h1>
+
+<div class="turns">
+    {% if latest_turns_list %}
+        <ul>
+            {% for a in latest_turns_list %}
+                <li><a href="{% url 'detail' a.id %}"><i class="bi bi-dot">  </i>{{a.turn_title}}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Черг немає</p>
+    {% endif %}
+</div>
+
+<div class="offer">
+    <ul>
+        {% if user.is_authenticated %}
+            <li><a href ="{% url 'create_turn' %}" ><i class="bi bi-plus"></i>Створити чергу</a></li>
+        {% else %}
+            <li><p style="color: red">Щоб створити чергу, авторизуйтесь!</p></li>
+            <li><a href="{% url 'register'%}">Реєстрація</a></li>
+            <li><a href="{% url 'login'%}">Вхід</a></li>
+        {% endif %}
+    </ul>
+</div>
 
 {% endblock %}

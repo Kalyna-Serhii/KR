@@ -4,33 +4,84 @@
 
 {% block content %}
 
-<h2>{{turn.turn_title}}</h2>
-<p>{{turn.turn_text}}</p>
-<em>{{turn.create_date}}</em><br>
+<div class="content">
+    <h2>{{turn.turn_title}}</h2>
+    <p>{{turn.turn_text}}</p>
+    <p>{{turn.create_date}}</p>
+</div>
 
-{% if user.id == turn.creator or user.username == 'admin' %}
-    <a href="{% url 'delete_turn' turn.id%}">Видалити чергу</a>
-    {% if turn.status == False %}
-         <a href="{% url 'open_turn' turn.id%}">Відкрити чергу</a>
-     {% endif %}
-    {% if turn.status == True %}
-         <a href="{% url 'close_turn' turn.id%}">Закрити чергу</a>
-    {% endif %}
+<div class="list">
     {% if latest_users_list %}
-        <a href="{% url 'next_turn_user' turn.id%}">Наступний</a>
-        <form action="{% url 'delete_turn_user' turn.id %}" method="POST">
-            {% csrf_token %}
-            <label for="user_list" style="display: inline-block">Оберіть користувача для видалення:</label>
-            <select name="user" id="user_list" style="display: inline-block">
-                <option value=""></option>
-                {% for user in latest_users_list %}
-                    <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
-                {% endfor %}
-            </select>
-            <button type="submit" id="delete_button" style="display:none; margin-left: 5px; display: inline-block;">Видалити</button>
-        </form>
+    <ol>
+        {% for i in latest_users_list %}
+            <li><p>{{i.first_name}} {{i.last_name}}</p></li>
+            <p class="date">{{i.registration_date}}</p>
+        {% endfor %}
+    </ol>
+    {%elif turn.status == False %}
+        <p class="none">Черга закрита для реєстрації</p>
+    {% else %}
+        <p class="none">Очікувачів немає, будьте першим!</p>
+
+
     {% endif %}
-{% endif %}
+</div>
+
+<div class="offer">
+    <ul>
+    {% if user.id == first_in_the_turn %}
+       <li><p>Ви в процесі обслуговування</p></li>
+    {% elif expected_hours == -1 and expected_minutes == -1 %}
+       <li><p>Даних про приблизний час очікування немає</p></li>
+    {% elif expected_hours != 0 or expected_minutes != 0 %}
+        <li><p>Приблизний час очікування:<br>{{expected_hours}} год. {{expected_minutes}} хв.</p></li>
+    {% endif %}
+
+    {% if user.is_authenticated %}
+        {% if user.id in users_id_list %}
+            <li style="margin-bottom: 0"><a href="{% url 'turn_unregister' turn.id %} "><i class="bi bi-person-dash"></i></i>  </i>Скасувати реєстрацію</a></li>
+        {% elif turn.status == True %}
+            <form action="{% url 'turn_register' turn.id %}" method="POST">
+                {% csrf_token %}
+                <li style="margin-bottom: 0"><button class="button" type="submit"><i class="bi bi-person-add"></i>  </i>Зареєструватись у черзі</button></li>
+            </form>
+        {% else %}
+            <li><p style="margin-bottom: 10px">Черга закрита для реєстрації</p></li>
+        {% endif %}
+    {% else %}
+        <li><p style="color: red">Щоб зареєструватись у черзі потрібно авторизуватись на сайті!</p></li>
+        <li><a href="{% url 'register'%}">Зареєструватися</a></li>
+        <li><a href="{% url 'login'%}">Увійти</a></li>
+    {% endif %}
+
+    {% if user.id == turn.creator or user.username == 'admin' %}
+
+        {% if turn.status == False %}
+            <li style="margin-top: 10px"><a href="{% url 'open_turn' turn.id%}"><i class="bi bi-door-open">  </i>Відкрити чергу</a></li>
+        {% else %}
+             <li style="margin-top: 10px"><a href="{% url 'close_turn' turn.id%}"><i class="bi bi-door-closed"></i>  </i>Закрити чергу</a></li>
+        {% endif %}
+
+        {% if latest_users_list %}
+            <li><a href="{% url 'next_turn_user' turn.id%}"><i class="bi bi-box-arrow-right">  </i>Наступний</a></li>
+            <form action="{% url 'delete_turn_user' turn.id %}" method="POST">
+                {% csrf_token %}
+                <li><p style="margin-bottom: 10px" for="user_list" >Оберіть користувача для видалення:</p></li>
+                <select name="user" id="user_list">
+                    <option value=""></option>
+                    {% for user in latest_users_list %}
+                        <option value="{{ user.id }}">{{ user.first_name }} {{ user.last_name }}</option>
+                    {% endfor %}
+                </select>
+                <li><button style="margin-top:10px; margin-bottom: 10px; color: red" type="submit" id="delete_button"><i class="bi bi-person-x">  </i>Видалити</button></li>
+            </form>
+        {% endif %}
+        <li><a style="color: red;" href="{% url 'delete_turn' turn.id%}"><i class="bi bi-trash3">  </i>Видалити чергу</a></li>
+    {% endif %}
+    </ul>
+</div>
+
+
 <script>
     var select = document.getElementById("user_list");
     var button = document.getElementById("delete_button");
@@ -46,50 +97,5 @@
         }
     });
 </script>
-
-<hr>
-
-{% if latest_users_list %}
-<ol style="padding-inline-start: 1%">
-    {% for i in latest_users_list %}
-        <li>{{i.first_name}} {{i.last_name}}</li>
-        <p>{{i.registration_date}}</p>
-    {% endfor %}
-</ol>
-{% else %}
-    Очікувачів немає, будьте першим!
-{% endif %}
-
-<hr>
-
-{% if user.id == first_in_the_turn %}
-    <p>Ви в процесі обслуговування</p>
-{% elif expected_hours == -1 and expected_minutes == -1 %}
-    <p>Даних про приблизний час очікування немає</p>
-{% elif expected_hours == 0 and expected_minutes == 0 %}
-
-{% else %}
-    <p>Приблизний час очікування: {{expected_hours}} год. {{expected_minutes}} хв.</p>
-{% endif %}
-
-{% if user.is_authenticated %}
-    {% if user.id in users_id_list %}
-        {% if request.user.id != first_in_the_turn %}
-            <p>Ви вже в черзі</p>
-        {% endif %}
-        <a href="{% url 'turn_unregister' turn.id %}">Скасувати реєстрацію</a>
-    {%elif turn.status == True %}
-        <form action="{% url 'turn_register' turn.id %}" method="POST">
-            {% csrf_token %}
-            <button type="submit">Зареєструватись у черзі</button>
-        </form>
-    {% else %}
-        <p>Черга закрита для реєстрації</p>
-    {% endif %}
-{% else %}
-    <p>Щоб зареєструватись у черзі потрібно авторизуватись на сайті!</p>
-    <a href="{% url 'register'%}">Клікніть тут щоб зареєструватися</a><br>
-    <a href="{% url 'login'%}">Клікніть тут щоб увійти</a>
-{% endif %}
 
 {% endblock %}

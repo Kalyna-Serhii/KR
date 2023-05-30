@@ -132,7 +132,9 @@ def turn_unregister(request, turn_id):
         else:
             flag = False
         try:
-            latest_users_list[0].delete()
+            for user_in_list in latest_users_list:
+                if user_in_list.id == user.id:
+                    user_in_list.delete()
         except IndexError:
             return render(request, 'error.html', {'error_message': 'Ви не в черзі!'})
         else:
@@ -234,7 +236,6 @@ def users_check(request, turn_id):
         expected_waiting_time = average_service_time * users_in_the_turn_before_user
         expected_hours, remainder = divmod(expected_waiting_time, 3600)
         expected_minutes, expected_seconds = divmod(remainder, 60)
-
         if expected_minutes == 0 and expected_seconds != 0:
             expected_minutes = 1
 

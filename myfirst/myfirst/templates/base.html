@@ -1,10 +1,30 @@
 <!DOCTYPE html>
+{%load static%}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="shortcut icon" href="{% static 'images/Logo.ico'%}" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css" integrity="sha384-b6lVK+yci+bfDmaY1u0zE8YYJt0TZxLEAFyYSLHId4xoVvsrQu3INevFKo+Xir8e" crossorigin="anonymous">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
-    {%block content %}{% endblock %}
+    <div class="wrapper">
+       <div class="menu">
+           <a href="{% url 'main' %}">
+               <img class="logo" src="{% static 'images/Logo.png'%}" alt="Логотип сайта">
+           </a>
+            <ul>
+                <li><a href="{% url 'main' %}">Головна</a></li>
+                <li><a href="{% url 'index' %}">Черги</a></li>
+                <li><a href="{% url 'schedule' %}">Графік роботи</a></li>
+                <li><a href="{% url 'about' %}">Про нас</a></li>
+                <li><a href="{% url 'account' %}">Аккаунт</a></li>
+            </ul>
+        </div>
+        <div class="main">
+            {%block content %}{%endblock%}
+        </div>
+    </div>
 </body>
 </html>

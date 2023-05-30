@@ -8,6 +8,18 @@ def main(request):
     return render(request, 'main.html')
 
 
+def account(request):
+    return render(request, 'registration/account.html')
+
+
+def schedule(request):
+    return render(request, 'schedule.html')
+
+
+def about(request):
+    return render(request, 'about.html')
+
+
 class Register(View):
     template_name = 'registration/register.html'
 

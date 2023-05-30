@@ -6,10 +6,26 @@
 
 <h1>Реєстрація</h1>
 
-<form method="post">
+<form style="margin: auto" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Зареєструватися</button>
+    <table style="width: 30%" cellpadding="30">
+        {{ form.as_table }}
+        <tr>
+<!--            <td></td>-->
+            <td>
+                <button style="width: 200px" type="submit" class="btn btn-success">Зареєструватися</button>
+            </td>
+        </tr>
+
+    </table>
 </form>
+
+<!--<div>-->
+<!--    <form method="post">-->
+<!--        {% csrf_token %}-->
+<!--        {{form.as_p}}-->
+<!--        <button type="submit">Зареєструватися</button>-->
+<!--    </form>-->
+<!--</div>-->
 
 {% endblock content %}

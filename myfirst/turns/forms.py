@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, Textarea, PasswordInput
 from phonenumber_field.formfields import PhoneNumberField
 from phonenumber_field.widgets import PhoneNumberPrefixWidget
 from django.contrib.auth.forms import AuthenticationForm
@@ -24,10 +24,21 @@ class UserCreationForm(UserCreationForm):
 
 
 class AuthenticationForm(AuthenticationForm):
+    # username = PhoneNumberField(
+    #     label='Номер телефону',
+    #     region='UA')
     username = PhoneNumberField(
         label='Номер телефону',
         region='UA',
         widget=PhoneNumberPrefixWidget(attrs={'placeholder': 'XX-XXX-XX-XX'}, initial='UA'))
+
+    class Meta:
+        fields = ['username', 'password']
+        widgets = {
+            # 'username': PhoneNumberPrefixWidget(attrs={'placeholder': 'XX-XXX-XX-XX'},
+            #                                     initial='UA'),
+            'password': PasswordInput(attrs={"autocomplete": "current-password", 'placeholder': 'Пароль'})
+        }
 
 
 class TurnForm(ModelForm):
@@ -40,7 +51,7 @@ class TurnForm(ModelForm):
                 'placeholder': 'Назва',
                 'name': 'turn_title'
             }),
-            'turn_text': TextInput(attrs={
+            'turn_text': Textarea(attrs={
                 'class': 'form-control',
                 'placeholder': 'Опис',
                 'name': 'turn_text'

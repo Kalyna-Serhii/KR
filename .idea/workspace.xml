@@ -4,14 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Added function to deleting any user from the turn">
-      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/error.html" afterDir="false" />
+    <list default="true" id="18c67038-9d82-473a-aa7d-b91d8f4b4c6a" name="Changes" comment="Optimized the output of the expected time in the turn + improved exception handling throughout the project">
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/account.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/schedule.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/myfirst/turns/static/css/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/451cd490-ea00-4a03-9d0f-1aba4fcec9d2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/451cd490-ea00-4a03-9d0f-1aba4fcec9d2.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/djangoProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/djangoProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/error.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/error.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/logged_out.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/logged_out.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/registration/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/turns/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/myfirst/turns/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/templates/turns/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/myfirst/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/myfirst/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/myfirst/turns/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/myfirst/turns/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/myfirst/turns/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -28,12 +42,16 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="CSS File" />
         <option value="HTML File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/../AppData/Local/Programs/Python/Python311/Lib/site-packages/django/contrib/auth/urls.py" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,7 +60,9 @@
     <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectId" id="2Nb6whFa2SgLxEx7aMdso5Z1A0z" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="foldersAlwaysOnTop" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -55,12 +75,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Admin/djangoProject&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;proofread&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -75,14 +97,15 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates" />
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\apps\turns\templates" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\turns" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\turns" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\turns" />
       <recent name="C:\Users\Admin\djangoProject\myfirst" />
-      <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst" />
       <recent name="C:\Users\Admin\djangoProject\myfirst\myfirst\templates\accounts" />
     </key>
   </component>
@@ -157,7 +180,34 @@
       <workItem from="1682337982293" duration="10502000" />
       <workItem from="1682360524230" duration="4601000" />
       <workItem from="1682402323444" duration="16064000" />
-      <workItem from="1682440267865" duration="9510000" />
+      <workItem from="1682440267865" duration="9763000" />
+      <workItem from="1682508321210" duration="6025000" />
+      <workItem from="1683036900112" duration="7741000" />
+      <workItem from="1683051778678" duration="4003000" />
+      <workItem from="1683099489141" duration="5289000" />
+      <workItem from="1683107420199" duration="690000" />
+      <workItem from="1683108416717" duration="15260000" />
+      <workItem from="1683184288875" duration="21093000" />
+      <workItem from="1683277837951" duration="7693000" />
+      <workItem from="1683551238520" duration="94000" />
+      <workItem from="1683642936328" duration="317000" />
+      <workItem from="1683705699450" duration="21328000" />
+      <workItem from="1683784911086" duration="55000" />
+      <workItem from="1684088599793" duration="1460000" />
+      <workItem from="1684143519619" duration="13597000" />
+      <workItem from="1684259773009" duration="1264000" />
+      <workItem from="1684405215021" duration="16549000" />
+      <workItem from="1684481894940" duration="5125000" />
+      <workItem from="1684732110537" duration="23000" />
+      <workItem from="1684741410154" duration="5510000" />
+      <workItem from="1684754733562" duration="3579000" />
+      <workItem from="1684915313266" duration="219000" />
+      <workItem from="1684915546012" duration="95000" />
+      <workItem from="1684915758861" duration="4235000" />
+      <workItem from="1685038463940" duration="1207000" />
+      <workItem from="1685269027729" duration="2636000" />
+      <workItem from="1685373230458" duration="611000" />
+      <workItem from="1685451032887" duration="648000" />
     </task>
     <task id="LOCAL-00001" summary="Changed DataBase Structure + added function for creating new turn">
       <created>1680453658349</created>
@@ -180,7 +230,14 @@
       <option name="project" value="LOCAL" />
       <updated>1680860660634</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Optimized the output of the expected time in the turn + improved exception handling throughout the project">
+      <created>1682453565719</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682453565719</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -201,6 +258,7 @@
     <MESSAGE value="Changed DataBase Structure + added function for creating new turn" />
     <MESSAGE value="Added turn master to turns + functions to unregister in the turn and deleting your turn" />
     <MESSAGE value="Added &quot;next&quot; command (delete from head of turn)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;next&quot; command (delete from head of turn)" />
+    <MESSAGE value="Optimized the output of the expected time in the turn + improved exception handling throughout the project" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimized the output of the expected time in the turn + improved exception handling throughout the project" />
   </component>
 </project>

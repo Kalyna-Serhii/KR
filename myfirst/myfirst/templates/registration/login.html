@@ -6,10 +6,33 @@
 
 <h1>Вхід</h1>
 
-<form method="post">
+<!--{% if form.errors %}-->
+<!--<p>{{ form.errors.error }}</p>-->
+<!--{% endif %}-->
+<form style="margin: auto" method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Увійти</button>
+    <table style="width: 30%" cellpadding="30">
+        {{ form.as_table }}
+
+        <tr>
+            <td></td>
+            <td>
+                <button style="width: 200px" type="submit" class="btn btn-success">Увійти</button>
+            </td>
+        </tr>
+
+    </table>
 </form>
+
+<!--<div style="text-align: center">-->
+<!--    <form method="post">-->
+<!--    {% csrf_token %}-->
+<!--        <p>-->
+<!--            {{ form.username }}<br>-->
+<!--            {{ form.password }}-->
+<!--        </p>-->
+<!--    <button type="submit">Увійти</button>-->
+<!--    </form>-->
+<!--</div>-->
 
 {% endblock %}

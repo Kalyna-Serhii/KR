@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    /*font-family: Verdana;*/
+}
+body {
+    background: linear-gradient(180deg, rgba(29,22,68,1) 0%, rgba(9,10,24,1) 100%);
+}
+h1 {
+    color: bisque;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 3%;
+}
+h2 {
+    color: bisque;
+    font-size: 35px;
+    margin-bottom: 30px;
+}
+div {
+    margin-left: 3%;
+    margin-right: 3%;
+}
+ul li {
+    vertical-align: center;
+    list-style: none;
+    margin-bottom: 10px;
+}
+ol li {
+    margin-left: 25px;
+}
+ol li::marker {
+    color: bisque;
+    font-size: 25px;
+}
+ol p:last-child {
+    margin-bottom: 0;
+}
+a {
+    text-decoration: none;
+    color: aqua;
+    font-size: 30px;
+}
+button {
+    background: none;
+    width: fit-content;
+    color: aqua;
+    font-size: 30px;
+    border: none;
+    cursor: pointer;
+}
+a:hover {
+    transition: transform .6s ease;
+    transform: scale(1.1);
+}
+p {
+    color: bisque;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+label {
+    color: bisque;
+    font-size: 25px;
+}
+select {
+    width: 120px;
+}
+input {
+    width: 120px;
+    margin: auto;
+    text-align: center;
+}
+form {
+    text-align: center;
+}
+form textarea {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+table {
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    font-size: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 20px;
+}
+.wrapper {
+    border-radius: 20px;
+    width: 1200px;
+    height: 100vh;
+    margin-right: auto;
+    margin-left: auto;
+    background: #090a18;
+}
+.menu {
+    margin-right: auto;
+    margin-left: auto;
+    width: 1200px;
+    display: flex;
+    background: #1d1644;
+    height: 60px;
+    border: 2px solid aqua;
+    border-radius: 20px;
+    margin-bottom: 2%;
+}
+.menu ul {
+    width: 100%;
+    text-align: center;
+    justify-content: space-between;
+    display: inline-flex;
+    font-weight: bold;
+    align-items: center;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+.menu li {
+    margin: 0;
+}
+.menu ul li a {
+    display: block;
+}
+.logo {
+    height: 90%;
+}
+.turns {
+    padding: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    width: 500px;
+    float: left;
+    font-size: 18px;
+}
+.offer {
+    padding: 10px;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+    width: 500px;
+    float: right;
+    display: block;
+}
+.offer ul {
+    text-align: center;
+}
+.offer li {
+    margin-bottom: 10px;
+}
+.main {
+    margin-left: 0;
+    margin-right: 0;
+}
+.content {
+    text-align: center;
+    margin-inline: 300px;
+}
+.list {
+    padding: 15px;
+    float: left;
+    display: block;
+    width: 500px;
+    border: 1px solid rgba(0, 255, 255, 0.4);
+}
+.date {
+    color: #c57e2a;
+    font-size: 25px;
+    margin-top: 5px;
+}
+.none {
+    margin-bottom: auto;
+    text-align: center;
+}
+.errorlist {
+    color: red;
+    font-size: 25px;
+    text-align: center;
+}
